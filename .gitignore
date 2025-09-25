@@ -1,0 +1,14 @@
+# Папка сборки
+build/
+# Документация
+docs/html/
+docs/latex/
+# Исполняемые файлы
+*.exe
+*.out
+# Служебные файлы
+*.o
+*.a
+# Doxygen backup files
+Doxyfile.bak
+*.bak
