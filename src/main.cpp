@@ -34,15 +34,18 @@ int main() {
  std::cout << "\nTranspose of A:" << std::endl;
  print_matrix(E);
 
- // Тестируем индивидуальное задание - сумму элементов
-//  double total_sum = matrix_sum(A);
-//  std::cout << "\nSum of all elements in matrix A: " << total_sum << std::endl;
+ // Тестируем индивидуальное задание - нормализацию матрицы
+ Matrix F = matrix_normalize(A);
+ std::cout << "\nNormalized A:" << std::endl;
+ print_matrix(F);
+
  // Освобождаем память (КАЖДУЮ МАТРИЦУ ТОЛЬКО ОДИН РАЗ!)
  free_matrix(A);
  free_matrix(B);
  free_matrix(C);
  free_matrix(D);
  free_matrix(E);
+ free_matrix(F);
 
  std::cout << "\nAll operations completed successfully!" << std::endl;
 

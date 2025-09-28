@@ -103,3 +103,43 @@ Matrix matrix_from_array(double* data, int rows, int cols) {
 
  return result;
 }
+// Нормализация матрицы (приведение к диапазону 0-1)
+Matrix matrix_normalize(Matrix m) {
+    if (m.data == nullptr || m.rows == 0 || m.cols == 0) {
+        throw std::invalid_argument("Matrix cannot be empty");
+    }
+
+    Matrix result = create_matrix(m.rows, m.cols);
+
+    double min_val = m.data[0][0];
+    double max_val = m.data[0][0];
+
+    for (int i = 0; i < m.rows; i++) {
+        for (int j = 0; j < m.cols; j++) {
+            if (m.data[i][j] < min_val) {
+                min_val = m.data[i][j];
+            }
+            if (m.data[i][j] > max_val) {
+                max_val = m.data[i][j];
+            }
+        }
+    }
+
+    if (min_val == max_val) {
+        for (int i = 0; i < m.rows; i++) {
+            for (int j = 0; j < m.cols; j++) {
+                result.data[i][j] = 0.5;
+            }
+        }
+        return result;
+    }
+
+    double range = max_val - min_val;
+    for (int i = 0; i < m.rows; i++) {
+        for (int j = 0; j < m.cols; j++) {
+            result.data[i][j] = (m.data[i][j] - min_val) / range;
+        }
+    }
+
+    return result;
+}

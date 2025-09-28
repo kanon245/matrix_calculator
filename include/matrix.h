@@ -13,3 +13,5 @@ Matrix matrix_transpose(Matrix m);
 // Вспомогательные функции
 void print_matrix(Matrix m);
 Matrix matrix_from_array(double* data, int rows, int cols);
+// Индивидуальное задание (нормализация матрицы)
+Matrix matrix_normalize(Matrix m);
